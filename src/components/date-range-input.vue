@@ -40,6 +40,16 @@
       :small="small"
       :regular="regular"
     ></date-input>
+    
+        <div
+          class="DateRangePickerInput_arrow"
+          aria-hidden="true"
+          role="presentation"
+        >
+          <div v-html="arrowIcon" v-if="!arrowIcon.name"></div>
+          <right-arrow v-if="arrowIcon.name === 'RightArrow'" />
+          <left-arrow v-if="arrowIcon.name === 'LeftArrow'" />
+        </div>
 
     <date-input
       :id="endDateId"
@@ -91,6 +101,8 @@
 
 <script>
 import { CalendarIcon, XCircleIcon } from "vue-feather-icons";
+import RightArrow from './RightArrow.vue';
+import LeftArrow from './LeftArrow.vue';
 import DateInput from "./date-input.vue";
 import {
   START_DATE,
@@ -104,7 +116,7 @@ import { DateRangePickerInputPhrases } from "../phrases";
 
 export default {
   name: "date-range-input",
-  components: { DateInput, CalendarIcon, XCircleIcon },
+  components: { DateInput, CalendarIcon, XCircleIcon, RightArrow, LeftArrow },
   props: {
     startDateId: {
       type: String,
@@ -266,8 +278,14 @@ export default {
     return {
       screenReaderText: this.screenReaderMessage || this.phrases.keyboardNavigationInstructions,
       startDateDisabled: this.disabled === START_DATE || this.disabled === true,
-      endDateDisabled: this.disabled === END_DATE || this.disabled === true
+      endDateDisabled: this.disabled === END_DATE || this.disabled === true,
+      arrowIcon: ''
     }
+  },
+  mounted() {
+    this.arrowIcon = this.customArrowIcon || RightArrow
+    if (this.isRTL) this.arrowIcon = LeftArrow;
+    if (this.small) this.arrowIcon = '-';
   },
   computed: {
     iconBefore() {
