@@ -81,10 +81,12 @@
       :class="{
         'DateRangePickerInput_clearDates__hide': !(startDate || endDate)
       }"
-      @click="handleClearDates"
+      @click="onClearDates"
       :disabled="disabled"
     >
-      <x-circle-icon></x-circle-icon>
+      <!-- <x-circle-icon></x-circle-icon> -->
+      <div v-if="customCloseIcon" v-html="customCloseIcon"></div>
+      <close-button v-else />
     </button>
     <button
       v-if="showDefaultInputIcon && iconAfter"
@@ -103,6 +105,7 @@
 import { CalendarIcon, XCircleIcon } from "vue-feather-icons";
 import RightArrow from './RightArrow.vue';
 import LeftArrow from './LeftArrow.vue';
+import CloseButton from './CloseButton.vue';
 import DateInput from "./date-input.vue";
 import {
   START_DATE,
@@ -116,7 +119,7 @@ import { DateRangePickerInputPhrases } from "../phrases";
 
 export default {
   name: "date-range-input",
-  components: { DateInput, CalendarIcon, XCircleIcon, RightArrow, LeftArrow },
+  components: { DateInput, CalendarIcon, XCircleIcon, RightArrow, LeftArrow, CloseButton },
   props: {
     startDateId: {
       type: String,

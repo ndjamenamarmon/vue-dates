@@ -9,10 +9,24 @@ storiesOf("DateRangePicker - Input Props", module)
       return <DateRangePicker />;
     }
   }))
+  .add("with clear dates button", () => ({
+    render() {
+      return (
+        <DateRangePicker showClearDates={true} />
+      );
+    }
+  }))
   .add("with custom arrow icon", () => ({
     render() {
       return (
         <DateRangePicker customArrowIcon="-->" />
+      );
+    }
+  }))
+  .add("with custom close icon", () => ({
+    render() {
+      return (
+        <DateRangePicker showClearDates={true} customCloseIcon="X" />
       );
     }
   }))

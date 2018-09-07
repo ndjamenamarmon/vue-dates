@@ -13,7 +13,7 @@
     :required="required"
     :read-only="readOnly"
     :screen-reader-input-message="screenReaderInputMessage"
-    :show-clear-dates="showClearDate"
+    :show-clear-dates="showClearDates"
     :show-default-input-icon="showDefaultInputIcon"
     :input-icon-position="inputIconPosition"
     :custom-input-icon="customInputIcon"
@@ -128,7 +128,7 @@ export default {
       type: String,
       default: ""
     },
-    showClearDate: {
+    showClearDates: {
       type: Boolean,
       default: false
     },
