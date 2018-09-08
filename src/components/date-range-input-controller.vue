@@ -189,7 +189,7 @@ export default {
       type: Function,
       default: function() {}
     },
-    onDatesChange: {
+    handleDatesChange: {
       type: Function,
       default: function() {}
     },
@@ -259,7 +259,7 @@ export default {
         isOutsideRange,
         minimumNights,
         keepOpenOnDateSelect,
-        onDatesChange
+        handleDatesChange
       } = this;
 
       const endDate = toMomentObject(endDateString, this.getDisplayFormat());
@@ -268,10 +268,10 @@ export default {
         && !isOutsideRange(endDate)
         && !(startDate && isBeforeDay(endDate, startDate.clone().add(minimumNights, 'days')));
       if (isEndDateValid) {
-        onDatesChange({ startDate, endDate });
+        handleDatesChange({ startDate, endDate });
         if (!keepOpenOnDateSelect) this.onClearFocus();
       } else {
-        onDatesChange({
+        handleDatesChange({
           startDate,
           endDate: null
         });
@@ -301,7 +301,7 @@ export default {
       const {
         isOutsideRange,
         minimumNights,
-        onDatesChange,
+        handleDatesChange,
         handleFocusChange,
         disabled
       } = this;
@@ -318,10 +318,10 @@ export default {
           endDate = null;
         }
 
-        onDatesChange({ startDate, endDate });
+        handleDatesChange({ startDate, endDate });
         handleFocusChange(END_DATE);
       } else {
-        onDatesChange({
+        handleDatesChange({
           startDate: null,
           endDate
         });
@@ -349,8 +349,8 @@ export default {
     },
 
     clearDates() {
-      const { onDatesChange, reopenPickerOnClearDates, handleFocusChange } = this;
-      onDatesChange({ startDate: null, endDate: null });
+      const { handleDatesChange, reopenPickerOnClearDates, handleFocusChange } = this;
+      handleDatesChange({ startDate: null, endDate: null });
       if (reopenPickerOnClearDates) {
         handleFocusChange(START_DATE);
       }

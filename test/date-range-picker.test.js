@@ -4,7 +4,7 @@ import DateRangeController from "../src/components/date-range-controller.vue";
 
 const propsData = {
   id: "date",
-  onDatesChange() {},
+  handleDatesChange() {},
   handleFocusChange() {},
   focusedInput: null,
   startDate: null,

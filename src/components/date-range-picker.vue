@@ -31,7 +31,7 @@
         :isOutsideRange="isOutsideRange"
         :minimumNights="minimumNights"
         :withFullScreenPortal="withFullScreenPortal"
-        :onDatesChange="onDatesChange"
+        :handle-dates-change="handleDatesChange"
         :handle-focus-change="onDateRangePickerInputFocus"
         :onKeyDownArrowDown="onDayPickerFocus"
         :onKeyDownQuestionMark="showKeyboardShortcutsPanel"
@@ -60,8 +60,7 @@
           :numberOfMonths="numberOfMonths"
           :onPrevMonthClick="onPrevMonthClick"
           :onNextMonthClick="onNextMonthClick"
-          :onDatesChange="onDatesChange"
-          :handleDatesChange="onDatesChange"
+          :handle-dates-change="handleDatesChange"
           :handle-focus-change="handleFocusChange"
           :onClose="onClose"
           :focusedInput="focusedInput"
@@ -158,7 +157,7 @@ export default {
       type: String,
       default: END_DATE
     },
-    onDatesChange: {
+    handleDatesChange: {
       type: Function,
       default: function() {}
     },
