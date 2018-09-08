@@ -1,6 +1,6 @@
 <template>
   <date-range-picker
-    :onFocusChange="onFocusChange"
+    :handle-focus-change="onFocusChange"
     :onDatesChange="onDatesChange"
     :focusedInput="focusedInput"
     :startDate="startDate"

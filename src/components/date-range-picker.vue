@@ -32,7 +32,7 @@
         :minimumNights="minimumNights"
         :withFullScreenPortal="withFullScreenPortal"
         :onDatesChange="onDatesChange"
-        :onFocusChange="onDateRangePickerInputFocus"
+        :handle-focus-change="onDateRangePickerInputFocus"
         :onKeyDownArrowDown="onDayPickerFocus"
         :onKeyDownQuestionMark="showKeyboardShortcutsPanel"
         :onClose="onClose"
@@ -62,8 +62,7 @@
           :onNextMonthClick="onNextMonthClick"
           :onDatesChange="onDatesChange"
           :handleDatesChange="onDatesChange"
-          :onFocusChange="onFocusChange"
-          :handleFocusChange="onFocusChange"
+          :handle-focus-change="handleFocusChange"
           :onClose="onClose"
           :focusedInput="focusedInput"
           :startDate="startDate"
@@ -366,7 +365,7 @@ export default {
       default: function() {}
     },
 
-    onFocusChange: {
+    handleFocusChange: {
       type: Function,
       default: function() {}
     },
@@ -514,7 +513,7 @@ export default {
   methods: {
     onDateRangePickerInputFocus(focusedInput) {
       const {
-        onFocusChange,
+        handleFocusChange,
         readOnly,
         withPortal,
         withFullScreenPortal,
@@ -534,12 +533,12 @@ export default {
         }
       }
 
-      onFocusChange(focusedInput);
+      handleFocusChange(focusedInput);
     },
 
     onDayPickerFocus() {
-      const { focusedInput, onFocusChange } = this;
-      if (!focusedInput) onFocusChange(START_DATE);
+      const { focusedInput, handleFocusChange } = this;
+      if (!focusedInput) handleFocusChange(START_DATE);
 
       this.isDateRangePickerInputFocused = false;
       this.isDayPickerFocused = true;
@@ -554,7 +553,7 @@ export default {
 
     onClearFocus() {
       const {
-        onFocusChange,
+        handleFocusChange,
         onClose,
         startDate,
         endDate,
@@ -567,7 +566,7 @@ export default {
       this.isDayPickerFocused = false;
       this.showKeyboardShortcuts = false;
 
-      onFocusChange(null);
+      handleFocusChange(null);
       onClose({ startDate, endDate });
     },
 

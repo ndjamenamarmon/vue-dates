@@ -181,7 +181,7 @@ export default {
       }
     },
 
-    onFocusChange: {
+    handleFocusChange: {
       type: Function,
       default: function() {}
     },
@@ -243,13 +243,13 @@ export default {
   methods: {
     onClearFocus() {
       const {
-        onFocusChange,
+        handleFocusChange,
         onClose,
         startDate,
         endDate,
       } = this;
 
-      onFocusChange(null);
+      handleFocusChange(null);
       onClose({ startDate, endDate });
     },
 
@@ -281,7 +281,7 @@ export default {
     onEndDateFocus() {
       const {
         startDate,
-        onFocusChange,
+        handleFocusChange,
         withFullScreenPortal,
         disabled,
       } = this;
@@ -290,9 +290,9 @@ export default {
         // When the datepicker is full screen, we never want to focus the end date first
         // because there's no indication that that is the case once the datepicker is open and it
         // might confuse the user
-        onFocusChange(START_DATE);
+        handleFocusChange(START_DATE);
       } else if (!disabled || disabled === START_DATE) {
-        onFocusChange(END_DATE);
+        handleFocusChange(END_DATE);
       }
     },
 
@@ -302,7 +302,7 @@ export default {
         isOutsideRange,
         minimumNights,
         onDatesChange,
-        onFocusChange,
+        handleFocusChange,
         disabled
       } = this;
 
@@ -319,7 +319,7 @@ export default {
         }
 
         onDatesChange({ startDate, endDate });
-        onFocusChange(END_DATE);
+        handleFocusChange(END_DATE);
       } else {
         onDatesChange({
           startDate: null,
@@ -329,9 +329,9 @@ export default {
     },
 
     onStartDateFocus() {
-      const { disabled, onFocusChange } = this;
+      const { disabled, handleFocusChange } = this;
       if (!disabled || disabled === END_DATE) {
-        onFocusChange(START_DATE);
+        handleFocusChange(START_DATE);
       }
     },
 
@@ -349,10 +349,10 @@ export default {
     },
 
     clearDates() {
-      const { onDatesChange, reopenPickerOnClearDates, onFocusChange } = this;
+      const { onDatesChange, reopenPickerOnClearDates, handleFocusChange } = this;
       onDatesChange({ startDate: null, endDate: null });
       if (reopenPickerOnClearDates) {
-        onFocusChange(START_DATE);
+        handleFocusChange(START_DATE);
       }
     }
   }
