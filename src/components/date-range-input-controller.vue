@@ -29,8 +29,8 @@
       :showClearDates="showClearDates"
       :onClearDates="clearDates"
       :screenReaderMessage="screenReaderMessage"
-      :onKeyDownArrowDown="onKeyDownArrowDown"
-      :onKeyDownQuestionMark="onKeyDownQuestionMark"
+      :handle-key-down-arrow-down="handleKeyDownArrowDown"
+      :handle-key-down-question-mark="handleKeyDownQuestionMark"
       :isRTL="isRTL"
       :noBorder="noBorder"
       :block="block"
@@ -193,11 +193,11 @@ export default {
       type: Function,
       default: function() {}
     },
-    onKeyDownArrowDown: {
+    handleKeyDownArrowDown: {
       type: Function,
       default: function() {}
     },
-    onKeyDownQuestionMark: {
+    handleKeyDownQuestionMark: {
       type: Function,
       default: function() {}
     },

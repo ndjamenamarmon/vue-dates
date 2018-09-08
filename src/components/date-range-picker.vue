@@ -33,8 +33,8 @@
         :withFullScreenPortal="withFullScreenPortal"
         :handle-dates-change="handleDatesChange"
         :handle-focus-change="onDateRangePickerInputFocus"
-        :onKeyDownArrowDown="onDayPickerFocus"
-        :onKeyDownQuestionMark="showKeyboardShortcutsPanel"
+        :handle-key-down-arrow-down="onDayPickerFocus"
+        :handle-key-down-question-mark="showKeyboardShortcutsPanel"
         :handle-close="handleClose"
         :phrases="phrases"
         :screenReaderMessage="screenReaderInputMessage"
@@ -639,11 +639,6 @@ export default {
     },
 
     showKeyboardShortcutsPanel() {
-      this.setState({
-        isDateRangePickerInputFocused: false,
-        isDayPickerFocused: true,
-        showKeyboardShortcuts: true
-      });
       this.isDateRangePickerInputFocused = false;
       this.isDayPickerFocused = true;
       this.showKeyboardShortcuts = true;

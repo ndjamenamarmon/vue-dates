@@ -33,9 +33,9 @@
       :openDirection="openDirection"
       :onChange="onStartDateChange"
       :handleFocus="onStartDateFocus"
-      :onKeyDownShiftTab="onStartDateShiftTab"
-      :onKeyDownArrowDown="onKeyDownArrowDown"
-      :onKeyDownQuestionMark="onKeyDownQuestionMark"
+      :handle-key-down-shift-tab="onStartDateShiftTab"
+      :handle-key-down-arrow-down="handleKeyDownArrowDown"
+      :handle-key-down-question-mark="handleKeyDownQuestionMark"
       :verticalSpacing="verticalSpacing"
       :small="small"
       :regular="regular"
@@ -55,9 +55,9 @@
       :openDirection="openDirection"
       :onChange="onEndDateChange"
       :handleFocus="onEndDateFocus"
-      :onKeyDownTab="onEndDateTab"
-      :onKeyDownArrowDown="onKeyDownArrowDown"
-      :onKeyDownQuestionMark="onKeyDownQuestionMark"
+      :handle-key-down-tab="onEndDateTab"
+      :handle-key-down-arrow-down="handleKeyDownArrowDown"
+      :handle-key-down-question-mark="handleKeyDownQuestionMark"
       :verticalSpacing="verticalSpacing"
       :small="small"
       :regular="regular"
@@ -154,11 +154,11 @@ export default {
       type: Function,
       default: function() {}
     },
-    onKeyDownArrowDown: {
+    handleKeyDownArrowDown: {
       type: Function,
       default: function() {}
     },
-    onKeyDownQuestionMark: {
+    handleKeyDownQuestionMark: {
       type: Function,
       default: function() {}
     },

@@ -52,8 +52,7 @@
     :nav-next="navNext"
     :on-prev-month-click="handlePrevMonthClick"
     :on-next-month-click="handleNextMonthClick"
-    :on-close="handleClose"
-    :on-focus-change="handleFocusChange"
+    :handle-close="handleClose"
 
     :render-calendar-day="renderCalendarDay"
     :render-day-contents="renderDayContents"
