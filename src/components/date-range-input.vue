@@ -116,15 +116,15 @@ export default {
     },
     startDatePlaceholderText: {
       type: String,
-      default: 'Start Date'
+      default: "Start Date"
     },
     endDatePlaceholderText: {
       type: String,
-      default: 'End Date'
+      default: "End Date"
     },
     screenReaderMessage: {
       type: String,
-      default: ''
+      default: ""
     },
     onStartDateFocus: {
       type: Function,
@@ -165,11 +165,11 @@ export default {
 
     startDate: {
       type: String,
-      default: ''
+      default: ""
     },
     endDate: {
       type: String,
-      default: ''
+      default: ""
     },
 
     isStartDateFocused: {
@@ -260,14 +260,14 @@ export default {
     isRTL: {
       type: Boolean,
       default: false
-    },
+    }
   },
   data() {
     return {
       screenReaderText: this.screenReaderMessage || this.phrases.keyboardNavigationInstructions,
       startDateDisabled: this.disabled === START_DATE || this.disabled === true,
       endDateDisabled: this.disabled === END_DATE || this.disabled === true
-    }
+    };
   },
   computed: {
     iconBefore() {

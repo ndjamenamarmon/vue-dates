@@ -111,10 +111,10 @@
 import moment from "moment";
 import throttle from "lodash/throttle";
 import { XCircleIcon } from "vue-feather-icons";
-import isTouchDevice from 'is-touch-device';
+import isTouchDevice from "is-touch-device";
 import OutsideClickHandler from "./outside-click-handler";
-import isInclusivelyAfterDay from '../utils/isInclusivelyAfterDay';
-import disableScroll from '../utils/disableScroll';
+import isInclusivelyAfterDay from "../utils/isInclusivelyAfterDay";
+import disableScroll from "../utils/disableScroll";
 import DateRangeInput from "./date-range-input.vue";
 import DateRangeInputController from "./date-range-input-controller.vue";
 import DateRangeController from "./date-range-controller.vue";
@@ -142,7 +142,7 @@ import {
 } from "../helpers";
 
 export default {
-  name: 'date-range-picker',
+  name: "date-range-picker",
   components: {
     OutsideClickHandler,
     DateRangeInput,
@@ -185,11 +185,11 @@ export default {
     // input related props
     startDatePlaceholderText: {
       type: String,
-      default: 'Start Date'
+      default: "Start Date"
     },
     endDatePlaceholderText: {
       type: String,
-      default: 'End Date'
+      default: "End Date"
     },
     disabled: {
       type: Boolean,
@@ -205,7 +205,7 @@ export default {
     },
     screenReaderInputMessage: {
       type: String,
-      default: ''
+      default: ""
     },
     showClearDates: {
       type: Boolean,
@@ -395,19 +395,19 @@ export default {
     isDayBlocked: {
       type: Function,
       default: function() {
-        return false
+        return false;
       }
     },
     isOutsideRange: {
       type: Function,
       default: function(day) {
-        return !isInclusivelyAfterDay(day, moment())
+        return !isInclusivelyAfterDay(day, moment());
       }
     },
     isDayHighlighted: {
       type: Function,
       default: function() {
-        return false
+        return false;
       }
     },
 
@@ -415,16 +415,16 @@ export default {
     displayFormat: {
       type: Function,
       default: function() {
-        return moment.localeData().longDateFormat('L')
+        return moment.localeData().longDateFormat("L");
       }
     },
     monthFormat: {
       type: String,
-      default: 'MMMM YYYY'
+      default: "MMMM YYYY"
     },
     weekDayFormat: {
       type: String,
-      default: 'dd'
+      default: "dd"
     },
     // phrases: DateRangePickerPhrases,
     phrases: {
@@ -436,8 +436,8 @@ export default {
     dayAriaLabelFormat: {
       type: String,
       default: undefined
+    }
     },
-  },
   data() {
     return {
       isDateRangePickerInputFocused: false,
@@ -468,10 +468,10 @@ export default {
   },
 
   created() {
-    this.dayPickerContainerStyles = {}
-    this.isDateRangePickerInputFocused = false
-    this.isDayPickerFocused = false
-    this.showKeyboardShortcuts = false
+    this.dayPickerContainerStyles = {};
+    this.isDateRangePickerInputFocused = false;
+    this.isDayPickerFocused = false;
+    this.showKeyboardShortcuts = false;
 
     this.isTouchDevice = false;
   },
@@ -512,14 +512,13 @@ export default {
   },
 
   methods: {
-    
     onDateRangePickerInputFocus(focusedInput) {
       const {
         onFocusChange,
         readOnly,
         withPortal,
         withFullScreenPortal,
-        keepFocusOnInput,
+        keepFocusOnInput
       } = this;
 
       if (focusedInput) {
@@ -612,7 +611,7 @@ export default {
         horizontalMargin,
         withPortal,
         withFullScreenPortal,
-        appendToBody,
+        appendToBody
       } = this;
       const { dayPickerContainerStyles } = this;
 
@@ -630,14 +629,14 @@ export default {
             anchorDirection,
             currentOffset,
             containerEdge,
-            horizontalMargin,
+            horizontalMargin
           ),
           ...(appendToBody && getDetachedContainerStyles(
             openDirection,
             anchorDirection,
-            this.container,
-          )),
-        }
+              this.container
+            ))
+        };
       }
     },
 
@@ -645,7 +644,7 @@ export default {
       this.setState({
         isDateRangePickerInputFocused: false,
         isDayPickerFocused: true,
-        showKeyboardShortcuts: true,
+        showKeyboardShortcuts: true
       });
       this.isDateRangePickerInputFocused = false;
       this.isDayPickerFocused = true;
@@ -677,7 +676,7 @@ export default {
       }
 
       return toLocalizedDateString(date);
-    },
+    }
   },
   computed: {
     containerStyle() {
@@ -711,8 +710,8 @@ export default {
         DateRangePicker_picker__rtl: this.isRTL
       };
     }
-  },
 }
+};
 </script>
 
 <style>

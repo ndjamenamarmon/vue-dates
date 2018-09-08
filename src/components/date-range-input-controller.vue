@@ -59,7 +59,7 @@ import {
 
 export default {
   name: "date-range-input-controller",
-  components: {DateRangePickerInput},
+  components: { DateRangePickerInput },
   props: {
     startDate: {
       type: moment,
@@ -71,7 +71,7 @@ export default {
     },
     startDatePlaceholderText: {
       type: String,
-      default: 'Start Date'
+      default: "Start Date"
     },
     isStartDateFocused: {
       type: Boolean,
@@ -88,7 +88,7 @@ export default {
     },
     endDatePlaceholderText: {
       type: String,
-      default: 'End Date'
+      default: "End Date"
     },
     isEndDateFocused: {
       type: Boolean,
@@ -97,7 +97,7 @@ export default {
 
     screenReaderMessage: {
       type: String,
-      default: ''
+      default: ""
     },
     showClearDates: {
       type: Boolean,
@@ -171,13 +171,13 @@ export default {
     isOutsideRange: {
       type: Function,
       default: function(day) {
-        return !isInclusivelyAfterDay(day, moment())
+        return !isInclusivelyAfterDay(day, moment());
       }
     },
     displayFormat: {
       type: Function,
       default: function() {
-        return moment.localeData().longDateFormat('L')
+        return moment.localeData().longDateFormat("L");
       }
     },
 
@@ -230,7 +230,7 @@ export default {
     isRTL: {
       type: Boolean,
       default: false
-    },
+    }
   },
   computed: {
     startDateString() {
@@ -259,7 +259,7 @@ export default {
         isOutsideRange,
         minimumNights,
         keepOpenOnDateSelect,
-        onDatesChange,
+        onDatesChange
       } = this;
 
       const endDate = toMomentObject(endDateString, this.getDisplayFormat());
@@ -273,7 +273,7 @@ export default {
       } else {
         onDatesChange({
           startDate,
-          endDate: null,
+          endDate: null
         });
       }
     },
@@ -303,7 +303,7 @@ export default {
         minimumNights,
         onDatesChange,
         onFocusChange,
-        disabled,
+        disabled
       } = this;
 
       const startDate = toMomentObject(startDateString, this.getDisplayFormat());
@@ -323,7 +323,7 @@ export default {
       } else {
         onDatesChange({
           startDate: null,
-          endDate,
+          endDate
         });
       }
     },

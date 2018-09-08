@@ -106,11 +106,11 @@ export default {
     },
     startDatePlaceholderText: {
       type: String,
-      default: 'Start Date'
+      default: "Start Date"
     },
     endDatePlaceholderText: {
       type: String,
-      default: 'End Date'
+      default: "End Date"
     },
     disabled: {
       type: Boolean,
@@ -339,7 +339,7 @@ export default {
     dayAriaLabelFormat: {
       type: String,
       default: undefined
-    },
+    }
   },
   data() {
     return {
@@ -347,15 +347,15 @@ export default {
       startDate: null,
       endDate: null,
       stateDateWrapper: function(date) {
-          return date
+        return date;
       }
     };
   },
   methods: {
     onDatesChange({ startDate, endDate }) {
       const { stateDateWrapper } = this;
-      this.startDate = startDate && stateDateWrapper(startDate)
-      this.endDate = endDate && stateDateWrapper(endDate)
+      this.startDate = startDate && stateDateWrapper(startDate);
+      this.endDate = endDate && stateDateWrapper(endDate);
     },
     onFocusChange(focusedInput) {
       this.focusedInput = focusedInput;
