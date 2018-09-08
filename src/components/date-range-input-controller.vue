@@ -185,7 +185,7 @@ export default {
       type: Function,
       default: function() {}
     },
-    onClose: {
+    handleClose: {
       type: Function,
       default: function() {}
     },
@@ -244,13 +244,13 @@ export default {
     onClearFocus() {
       const {
         handleFocusChange,
-        onClose,
+        handleClose,
         startDate,
         endDate,
       } = this;
 
       handleFocusChange(null);
-      onClose({ startDate, endDate });
+      handleClose({ startDate, endDate });
     },
 
     onEndDateChange(endDateString) {

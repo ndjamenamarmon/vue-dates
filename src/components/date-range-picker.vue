@@ -35,7 +35,7 @@
         :handle-focus-change="onDateRangePickerInputFocus"
         :onKeyDownArrowDown="onDayPickerFocus"
         :onKeyDownQuestionMark="showKeyboardShortcutsPanel"
-        :onClose="onClose"
+        :handle-close="handleClose"
         :phrases="phrases"
         :screenReaderMessage="screenReaderInputMessage"
         :isFocused="isDateRangePickerInputFocused"
@@ -62,7 +62,7 @@
           :onNextMonthClick="onNextMonthClick"
           :handle-dates-change="handleDatesChange"
           :handle-focus-change="handleFocusChange"
-          :onClose="onClose"
+          :handle-close="handleClose"
           :focusedInput="focusedInput"
           :startDate="startDate"
           :endDate="endDate"
@@ -359,7 +359,7 @@ export default {
       default: function() {}
     },
 
-    onClose: {
+    handleClose: {
       type: Function,
       default: function() {}
     },
@@ -553,7 +553,7 @@ export default {
     onClearFocus() {
       const {
         handleFocusChange,
-        onClose,
+        handleClose,
         startDate,
         endDate,
         appendToBody,
@@ -566,7 +566,7 @@ export default {
       this.showKeyboardShortcuts = false;
 
       handleFocusChange(null);
-      onClose({ startDate, endDate });
+      handleClose({ startDate, endDate });
     },
 
     setDayPickerContainerRef(ref) {
