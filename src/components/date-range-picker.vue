@@ -118,7 +118,6 @@ import throttle from "lodash/throttle";
 import { XCircleIcon } from "vue-feather-icons";
 import isTouchDevice from "is-touch-device";
 import OutsideClickHandler from "./outside-click-handler";
-import disableScroll from "../utils/disableScroll";
 import DateRangeInput from "./date-range-input.vue";
 import DateRangeInputController from "./date-range-input-controller.vue";
 import DateRangeController from "./date-range-controller.vue";
@@ -143,7 +142,8 @@ import {
   toLocalizedDateString,
   toMomentObject,
   getResponsiveContainerStyles,
-  isInclusivelyAfterDay
+  isInclusivelyAfterDay,
+  disableScroll
 } from "../helpers";
 
 export default {
