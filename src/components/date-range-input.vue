@@ -32,9 +32,9 @@
       :readOnly="readOnly"
       :showCaret="showCaret"
       :openDirection="openDirection"
-      :onChange="onStartDateChange"
-      :handleFocus="onStartDateFocus"
-      :handle-key-down-shift-tab="onStartDateShiftTab"
+      :handle-change="handleStartDateChange"
+      :handle-focus="handleStartDateFocus"
+      :handle-key-down-shift-tab="handleStartDateShiftTab"
       :handle-key-down-arrow-down="handleKeyDownArrowDown"
       :handle-key-down-question-mark="handleKeyDownQuestionMark"
       :verticalSpacing="verticalSpacing"
@@ -65,9 +65,9 @@
       :readOnly="readOnly"
       :showCaret="showCaret"
       :openDirection="openDirection"
-      :onChange="onEndDateChange"
-      :handleFocus="onEndDateFocus"
-      :handle-key-down-tab="onEndDateTab"
+      :handle-change="handleEndDateChange"
+      :handle-focus="handleEndDateFocus"
+      :handle-key-down-tab="handleEndDateTab"
       :handle-key-down-arrow-down="handleKeyDownArrowDown"
       :handle-key-down-question-mark="handleKeyDownQuestionMark"
       :verticalSpacing="verticalSpacing"
@@ -140,27 +140,27 @@ export default {
       type: String,
       default: ""
     },
-    onStartDateFocus: {
+    handleStartDateFocus: {
       type: Function,
       default: function() {}
     },
-    onEndDateFocus: {
+    handleEndDateFocus: {
       type: Function,
       default: function() {}
     },
-    onStartDateChange: {
+    handleStartDateChange: {
       type: Function,
       default: function() {}
     },
-    onEndDateChange: {
+    handleEndDateChange: {
       type: Function,
       default: function() {}
     },
-    onStartDateShiftTab: {
+    handleStartDateShiftTab: {
       type: Function,
       default: function() {}
     },
-    onEndDateTab: {
+    handleEndDateTab: {
       type: Function,
       default: function() {}
     },
