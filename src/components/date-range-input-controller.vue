@@ -16,9 +16,6 @@
       :showCaret="showCaret"
       :showDefaultInputIcon="showDefaultInputIcon"
       :inputIconPosition="inputIconPosition"
-      :customInputIcon="customInputIcon"
-      :customArrowIcon="customArrowIcon"
-      :customCloseIcon="customCloseIcon"
       :phrases="phrases"
       :onStartDateChange="onStartDateChange"
       :onStartDateFocus="onStartDateFocus"
@@ -27,7 +24,7 @@
       :onEndDateFocus="onEndDateFocus"
       :onEndDateTab="onClearFocus"
       :showClearDates="showClearDates"
-      :onClearDates="clearDates"
+      :handle-clear-dates="clearDates"
       :screenReaderMessage="screenReaderMessage"
       :handle-key-down-arrow-down="handleKeyDownArrowDown"
       :handle-key-down-question-mark="handleKeyDownQuestionMark"
@@ -37,7 +34,17 @@
       :small="small"
       :regular="regular"
       :verticalSpacing="verticalSpacing"
-  ></date-range-picker-input>
+  >
+      <template slot="custom-input-icon">
+        <slot name="custom-input-icon"></slot>
+      </template>
+      <template slot="custom-arrow-icon">
+        <slot name="custom-arrow-icon"></slot>
+      </template>
+      <template slot="custom-close-icon">
+        <slot name="custom-close-icon"></slot>
+      </template>
+  </date-range-picker-input>
 </template>
 
 <script>
@@ -200,19 +207,6 @@ export default {
     handleKeyDownQuestionMark: {
       type: Function,
       default: function() {}
-    },
-
-    customInputIcon: {
-      type: String,
-      default: null
-    },
-    customArrowIcon: {
-      type: String,
-      default: null
-    },
-    customCloseIcon: {
-      type: String,
-      default: null
     },
 
     // accessibility

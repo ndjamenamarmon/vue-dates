@@ -19,9 +19,6 @@
         :showCaret="!withPortal && !withFullScreenPortal && !hideFang"
         :showDefaultInputIcon="showDefaultInputIcon"
         :inputIconPosition="inputIconPosition"
-        :customInputIcon="customInputIcon"
-        :customArrowIcon="customArrowIcon"
-        :customCloseIcon="customCloseIcon"
         :disabled="disabled"
         :required="required"
         :readOnly="readOnly"
@@ -45,7 +42,17 @@
         :small="small"
         :regular="regular"
         :verticalSpacing="verticalSpacing"
-      ></date-range-input-controller>
+      >
+        <template slot="custom-input-icon">
+          <slot name="custom-input-icon"></slot>
+        </template>
+        <template slot="custom-arrow-icon">
+          <slot name="custom-arrow-icon"></slot>
+        </template>
+        <template slot="custom-close-icon">
+          <slot name="custom-close-icon"></slot>
+        </template>
+      </date-range-input-controller>
 
       <div
         v-if="focusedInput"
@@ -216,18 +223,6 @@ export default {
     inputIconPosition: {
       type: String,
       default: ICON_BEFORE_POSITION
-    },
-    customInputIcon: {
-      type: String,
-      default: null
-    },
-    customArrowIcon: {
-      type: String,
-      default: null
-    },
-    customCloseIcon: {
-      type: String,
-      default: null
     },
     noBorder: {
       type: Boolean,

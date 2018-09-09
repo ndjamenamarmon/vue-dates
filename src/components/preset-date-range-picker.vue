@@ -16,9 +16,6 @@
     :show-clear-dates="showClearDate"
     :show-default-input-icon="showDefaultInputIcon"
     :input-icon-position="inputIconPosition"
-    :custom-input-icon="customInputIcon"
-    :custom-arrow-icon="customArrowIcon"
-    :custom-close-icon="customCloseIcon"
     :no-border="noBorder"
     :block="block"
     :small="small"
@@ -139,18 +136,6 @@ export default {
     inputIconPosition: {
       type: String,
       default: ICON_BEFORE_POSITION
-    },
-    customInputIcon: {
-      type: String,
-      default: null
-    },
-    customArrowIcon: {
-      type: String,
-      default: null
-    },
-    customCloseIcon: {
-      type: String,
-      default: null
     },
     noBorder: {
       type: Boolean,

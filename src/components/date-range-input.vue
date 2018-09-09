@@ -17,7 +17,8 @@
       :aria-label="phrases.focusStartDate"
       @click="handleKeyDownArrowDown"
     >
-      <calendar-icon class="DateRangePickerInput_calendarIcon_svg"></calendar-icon>
+      <slot name="custom-input-icon" v-if="$slots['custom-input-icon']"></slot>
+      <calendar-icon class="DateRangePickerInput_calendarIcon_svg" v-else></calendar-icon>
     </button>
     <date-input
       :id="startDateId"
@@ -40,6 +41,17 @@
       :small="small"
       :regular="regular"
     ></date-input>
+
+    <div
+      class="DateRangePickerInput_arrow"
+      aria-hidden="true"
+      role="presentation"
+    >
+      <slot name="custom-arrow-icon" v-if="$slots['custom-arrow-icon']"></slot>
+      <arrow-left-icon v-if="!$slots['custom-arrow-icon'] && isRTL" class="DateRangePickerInput_arrow_svg"></arrow-left-icon>
+      <template v-if="!$slots['custom-arrow-icon'] && small">-</template>
+      <arrow-right-icon v-if="!$slots['custom-arrow-icon'] && !isRTL && !small" class="DateRangePickerInput_arrow_svg"></arrow-right-icon>
+    </div>
 
     <date-input
       :id="endDateId"
@@ -74,7 +86,8 @@
       @click="handleClearDates"
       :disabled="disabled"
     >
-      <x-circle-icon></x-circle-icon>
+      <slot name="custom-close-icon" v-if="$slots['custom-close-icon']"></slot>
+      <x-circle-icon v-else></x-circle-icon>
     </button>
     <button
       v-if="showDefaultInputIcon && iconAfter"
@@ -84,13 +97,14 @@
       :aria-label="phrases.focusStartDate"
       @click="handleKeyDownArrowDown"
     >
-      <calendar-icon class="DateRangePickerInput_calendarIcon_svg"></calendar-icon>
+      <slot name="custom-input-icon" v-if="$slots['custom-input-icon']"></slot>
+      <calendar-icon class="DateRangePickerInput_calendarIcon_svg" v-else></calendar-icon>
     </button>
   </div>
 </template>
 
 <script>
-import { CalendarIcon, XCircleIcon } from "vue-feather-icons";
+import { CalendarIcon, XCircleIcon, ArrowLeftIcon, ArrowRightIcon } from "vue-feather-icons";
 import DateInput from "./date-input.vue";
 import {
   START_DATE,
@@ -104,7 +118,7 @@ import { DateRangePickerInputPhrases } from "../phrases";
 
 export default {
   name: "date-range-input",
-  components: { DateInput, CalendarIcon, XCircleIcon },
+  components: { DateInput, CalendarIcon, XCircleIcon, ArrowLeftIcon, ArrowRightIcon },
   props: {
     startDateId: {
       type: String,
@@ -150,7 +164,7 @@ export default {
       type: Function,
       default: function() {}
     },
-    onClearDates: {
+    handleClearDates: {
       type: Function,
       default: function() {}
     },
@@ -211,18 +225,6 @@ export default {
     inputIconPosition: {
       type: String,
       default: ICON_BEFORE_POSITION
-    },
-    customInputIcon: {
-      type: String,
-      default: null
-    },
-    customArrowIcon: {
-      type: String,
-      default: null
-    },
-    customCloseIcon: {
-      type: String,
-      default: null
     },
     noBorder: {
       type: Boolean,
@@ -306,7 +308,7 @@ export default {
 }
 .DateRangePickerInput_arrow_svg {
   vertical-align: middle;
-  fill: #565a5c;
+  /* fill: #565a5c; */
   height: 24px;
   width: 24px;
 }
