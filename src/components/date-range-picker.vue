@@ -419,7 +419,6 @@ export default {
       type: String,
       default: "dd"
     },
-    // phrases: DateRangePickerPhrases,
     phrases: {
       type: Object,
       default: function() {

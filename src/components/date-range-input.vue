@@ -256,7 +256,9 @@ export default {
     // i18n
     phrases: {
       type: Object,
-      default: DateRangePickerInputPhrases
+      default: function() {
+        return DateRangePickerInputPhrases
+      }
     },
 
     isRTL: {
